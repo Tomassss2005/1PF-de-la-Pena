@@ -1,0 +1,38 @@
+<h1 appHighlight class="h1-usuarios">Lista de alumnos</h1>
+
+<app-users-table (editStudent)="onEditStudent($event)" (deleteStudent)="onDeleteStudent ($event)"
+    [dataSource]="students" />
+
+<h1 appHighlight class="h1-modificar">Modificar alumnos</h1>
+
+<form [formGroup]="studentForm" (ngSubmit)="onsubmit()" class="form">
+    <div class="row">
+        <div class="col-6">
+            <mat-form-field class="w-100">
+                <mat-label>Nombre</mat-label>
+                <input formControlName="nombre" matInput class="w-100">
+            </mat-form-field>
+        </div>
+        <div class="col-6">
+            <mat-form-field class="w-100">
+                <mat-label>Apellido</mat-label>
+                <input formControlName="apellido" matInput class="w-100">
+            </mat-form-field>
+        </div>
+        <div class="col-6 d-flex justify-content-center">
+            <mat-form-field class="w-100">
+                <mat-label>Nota</mat-label>
+                <input formControlName="nota" matInput class="w-100">
+            </mat-form-field>
+        </div>
+        <div class="col-6 d-flex justify-content-center">
+            <mat-form-field class="w-100">
+                <mat-label>Curso</mat-label>
+                <input formControlName="curso" matInput class="w-100">
+            </mat-form-field>
+        </div>
+        <div class="div-form-button">
+            <button class="m-2" type="submit" mat-stroked-button>Guardar</button>
+        </div>
+    </div>
+</form>

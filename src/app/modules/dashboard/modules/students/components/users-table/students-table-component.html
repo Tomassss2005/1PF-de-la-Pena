@@ -1,0 +1,41 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+        <!-- ENCABEZADO DE LA COLUMNA -->
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <!-- DATO DE LA CELDA -->
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Alumno </th>
+        <td mat-cell *matCellDef="let element"> {{element | StudentNameCategory}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="nota">
+        <th mat-header-cell *matHeaderCellDef> Nota </th>
+        <td mat-cell *matCellDef="let element"> {{element.nota}} </td>
+    </ng-container>
+    <ng-container matColumnDef="curso">
+        <th mat-header-cell *matHeaderCellDef> Curso </th>
+        <td mat-cell *matCellDef="let element"> {{element.curso}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element">
+            <button (click)="editStudent.emit(element)" mat-icon-button>
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button (click)="deleteStudent.emit(element.id)" mat-icon-button>
+                <mat-icon>delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
